@@ -1,4 +1,6 @@
 const questionContainer = document.querySelector("#questionContainer");
+const questionTitle = document.querySelector("#questionTitle");
+
 class question {
     constructor(question, answers, answerNumber) {
         this.question = question;
@@ -18,8 +20,15 @@ console.log(questionArray);
 
 function initQuestion(question)
 {
-    let newQuestion = document.createElement('li');
-    newQuestion.textContent = '' + question.question + '';
+    questionTitle.textContent = '' + question.question + '';
+    let newQuestion = document.createElement('ul');
+    question.answers.forEach((element, index) => {
+        let button = document.createElement('li');
+        button.textContent = '' + element + '';
+        button.number = index;
+        newQuestion.appendChild(button);
+    });
+    newQuestion.classList.add('buttonscontainer');
     questionContainer.appendChild(newQuestion);
 }
 
