@@ -1,0 +1,22 @@
+h1 {
+    text-align:center;
+    margin-bottom:5vh;
+    margin-top: 5vh;
+}
+
+#questionContainer {
+    display:block;
+    margin:5vh, 5vw, 5vh, 5vw;
+}
+
+#questionContainer h2 {
+    text-align:center;
+    margin-bottom:5vh;
+}
+
+.buttons-container {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-evenly;
+}

@@ -28,7 +28,7 @@ function initQuestion(question)
         button.setAttribute('number', index);
         newQuestion.appendChild(button);
     });
-    newQuestion.classList.add('buttonscontainer');
+    newQuestion.classList.add('buttons-container');
     questionContainer.appendChild(newQuestion);
 }
 
