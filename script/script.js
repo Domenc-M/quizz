@@ -26,10 +26,16 @@ function initQuestion(question)
         let button = document.createElement('li');
         button.classList.add('answer-btn');
         button.textContent = '' + element + '';
-        button.setAttribute('number', index);
+        button.setAttribute('number', index+1);
+        button.addEventListener('click', selectAnswer);
         newQuestion.appendChild(button);
     });
     newQuestion.classList.add('buttons-container');
     questionContainer.appendChild(newQuestion);
+}
+
+function selectAnswer(n)
+{
+console.log(this.getAttribute('number'));
 }
 
