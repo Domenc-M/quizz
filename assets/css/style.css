@@ -1,6 +1,7 @@
 :root {
     --main-color:rgb(0, 128, 0);
     --secondary-color:rgb(255, 255, 255);
+    --dark: rgb(0, 0, 0);
 }
 
 body {
@@ -36,18 +37,20 @@ h1 {
 
 .buttons-container {
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     align-items: center;
     justify-content: space-evenly;
     height:60vh;
 }
 
 .answer-btn {
-    color:white;
-    background-color:var(--main-color);
+    color:var(--dark);
+    background-color:var(--secondary-color);
+    border:1px solid var(--dark);
     height:5vh;
-    width:5vw;
+    width:80%;
     text-align:center;
     line-height:5vh;
     border-radius:200px;
+    cursor:pointer;
 }
