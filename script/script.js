@@ -13,6 +13,7 @@ let q2 = new question("What is 3+3 ?", ["6", "9", "8"], 1);
 let q3 = new question("What is 5+5 ?", ["55", "25", "10"], 3);
 
 let questionArray = [q1, q2, q3];
+let currentQuestion = 0
 
 initQuestion(q1);
 
@@ -36,6 +37,13 @@ function initQuestion(question)
 
 function selectAnswer(n)
 {
-console.log(this.getAttribute('number'));
+    if (this.getAttribute('number') == questionArray[currentQuestion].answerNumber)
+    {
+        console.log('correct');
+    }
+    else
+    {
+        console.log('wrong');
+    }
 }
 
