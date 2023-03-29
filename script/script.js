@@ -24,6 +24,7 @@ function initQuestion(question)
     let newQuestion = document.createElement('ul');
     question.answers.forEach((element, index) => {
         let button = document.createElement('li');
+        button.classList.add('answer-btn');
         button.textContent = '' + element + '';
         button.setAttribute('number', index);
         newQuestion.appendChild(button);

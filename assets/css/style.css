@@ -1,7 +1,24 @@
+:root {
+    --main-color:rgb(0, 128, 0);
+    --secondary-color:rgb(255, 255, 255);
+}
+
+body {
+    background-color: var(--main-color);
+}
+
+#quizzContainer {
+    background-color: var(--secondary-color);
+    margin: 5vh 5vw 5vh 5vw;
+    border-radius:100px;
+}
+
 h1 {
+    color:var(--secondary-color);
     text-align:center;
     margin-bottom:5vh;
     margin-top: 5vh;
+    font-size:60px;
 }
 
 #questionContainer {
@@ -11,7 +28,10 @@ h1 {
 
 #questionContainer h2 {
     text-align:center;
-    margin-bottom:5vh;
+    padding-bottom:5vh;
+    padding-top:5vh;
+    color:var(--main-color);
+    font-size:40px;
 }
 
 .buttons-container {
@@ -19,4 +39,15 @@ h1 {
     flex-direction:row;
     align-items: center;
     justify-content: space-evenly;
+    height:60vh;
+}
+
+.answer-btn {
+    color:white;
+    background-color:var(--main-color);
+    height:5vh;
+    width:5vw;
+    text-align:center;
+    line-height:5vh;
+    border-radius:200px;
 }
