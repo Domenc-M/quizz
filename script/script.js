@@ -13,7 +13,8 @@ let q2 = new question("What is 3+3 ?", ["6", "9", "8"], 1);
 let q3 = new question("What is 5+5 ?", ["55", "25", "10"], 3);
 
 let questionArray = [q1, q2, q3];
-let currentQuestion = 0
+let currentQuestion = 0;
+let playerScore = 0;
 
 initQuestion(q1);
 
@@ -39,11 +40,28 @@ function selectAnswer(n)
 {
     if (this.getAttribute('number') == questionArray[currentQuestion].answerNumber)
     {
-        console.log('correct');
+        playerScore++;
     }
     else
     {
-        console.log('wrong');
+    }
+    displayCorrectAnswer();
+}
+
+function displayCorrectAnswer()
+{
+    for (let i = 0; i < 3; i++) {
+        let btn = document.querySelectorAll('.answer-btn[number]')[i];
+        console.log(btn);
+        if(btn.getAttribute('number') == questionArray[currentQuestion].answerNumber)
+        {
+            btn.classList.add('answer-correct');
+        }
+        else
+        {
+            btn.classList.add('answer-wrong');
+        }
+        
     }
 }
 

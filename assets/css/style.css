@@ -2,6 +2,7 @@
     --main-color:rgb(0, 128, 0);
     --secondary-color:rgb(255, 255, 255);
     --dark: rgb(0, 0, 0);
+    --wrong: rgb(255, 0, 0);
 }
 
 body {
@@ -53,4 +54,16 @@ h1 {
     line-height:5vh;
     border-radius:200px;
     cursor:pointer;
+}
+
+.answer-correct {
+    color:var(--secondary-color);
+    background-color:var(--main-color);
+    border:none;
+}
+
+.answer-wrong {
+    color:var(--secondary-color);
+    background-color:var(--wrong);
+    border:none;
 }
