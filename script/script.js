@@ -17,7 +17,7 @@ let questionArray = [q1, q2, q3];
 let currentQuestion = 0;
 let playerScore = 0;
 
-initQuestion(q1);
+initQuestion(questionArray[currentQuestion]);
 
 console.log(questionArray);
 
@@ -48,6 +48,7 @@ function selectAnswer(n)
     }
     displayCorrectAnswer();
     // setTimeout(1500);
+    loadNextQuestion();
 }
 
 function displayCorrectAnswer()
@@ -65,5 +66,11 @@ function displayCorrectAnswer()
         }
         
     }
+}
+
+function loadNextQuestion() {
+
+    currentQuestion++;
+    initQuestion(questionArray[currentQuestion]);
 }
 
