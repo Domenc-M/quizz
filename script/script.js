@@ -1,5 +1,6 @@
 const questionContainer = document.querySelector("#questionContainer");
 const questionTitle = document.querySelector("#questionTitle");
+const iconContainer = document.querySelector("#questionContainer");
 
 class question {
     constructor(question, answers, answerNumber) {
@@ -46,6 +47,7 @@ function selectAnswer(n)
     {
     }
     displayCorrectAnswer();
+    // setTimeout(1500);
 }
 
 function displayCorrectAnswer()
