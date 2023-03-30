@@ -1,5 +1,4 @@
 const questionContainer = document.querySelector("#questionContainer");
-const questionTitle = document.querySelector("#questionTitle");
 const iconContainer = document.querySelector("#questionContainer");
 
 class question {
@@ -19,10 +18,9 @@ let playerScore = 0;
 
 initQuestion(questionArray[currentQuestion]);
 
-console.log(questionArray);
-
 function initQuestion(question)
 {
+    let questionTitle = document.createElement('h2');
     questionTitle.textContent = '' + question.question + '';
     let newQuestion = document.createElement('ul');
     question.answers.forEach((element, index) => {
@@ -34,6 +32,7 @@ function initQuestion(question)
         newQuestion.appendChild(button);
     });
     newQuestion.classList.add('buttons-container');
+    questionContainer.appendChild(questionTitle);
     questionContainer.appendChild(newQuestion);
 }
 
@@ -55,21 +54,15 @@ function displayCorrectAnswer()
 {
     for (let i = 0; i < 3; i++) {
         let btn = document.querySelectorAll('.answer-btn[number]')[i];
-        console.log(btn);
-        if(btn.getAttribute('number') == questionArray[currentQuestion].answerNumber)
-        {
-            btn.classList.add('answer-correct');
-        }
-        else
-        {
-            btn.classList.add('answer-wrong');
-        }
+        if(btn.getAttribute('number') == questionArray[currentQuestion].answerNumber) { btn.classList.add('answer-correct');}
+        else { btn.classList.add('answer-wrong'); }
         
     }
 }
 
 function loadNextQuestion() {
 
+    questionContainer.innerHTML = "";
     currentQuestion++;
     initQuestion(questionArray[currentQuestion]);
 }
