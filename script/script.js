@@ -49,13 +49,14 @@ function selectAnswer(n)
     {
     }
     displayCorrectAnswer();
-    // setTimeout(1500);
-    loadNextQuestion();
+    //freezeInput()
+    setTimeout(loadNextQuestion, 1500);
+    // loadNextQuestion();
 }
 
 function displayCorrectAnswer()
 {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
         let btn = document.querySelectorAll('.answer-btn[number]')[i];
         if(btn.getAttribute('number') == questionArray[currentQuestion].answerNumber) { btn.classList.add('answer-correct');}
         else { btn.classList.add('answer-wrong'); }
