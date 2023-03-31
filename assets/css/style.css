@@ -7,6 +7,8 @@
 
 body {
     background-color: var(--main-color);
+    height:100vh;
+    overflow:hidden;
 }
 
 #quizzContainer {
@@ -30,7 +32,6 @@ h1 {
 
 #questionContainer h2 {
     text-align:center;
-    padding-bottom:5vh;
     padding-top:5vh;
     color:var(--main-color);
     font-size:40px;
@@ -41,7 +42,7 @@ h1 {
     flex-direction:column;
     align-items: center;
     justify-content: space-evenly;
-    height:60vh;
+    height:50vh;
 }
 
 .answer-btn {
