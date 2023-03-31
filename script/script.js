@@ -1,5 +1,6 @@
 const questionContainer = document.querySelector("#questionContainer");
 const iconContainer = document.querySelector("#questionContainer");
+const scoreContainer = document.querySelector('#score');
 
 class question {
     constructor(question, answers, answerNumber) {
@@ -15,6 +16,7 @@ let q3 = new question("What is 5+5 ?", ["55", "25", "10", "la réponse D"], 3);
 let questionArray = [q1, q2, q3];
 let currentQuestion = 0;
 let playerScore = 0;
+let playerQuestions = 0;
 
 initQuestion(questionArray[currentQuestion]);
 
@@ -63,7 +65,9 @@ function displayCorrectAnswer()
 
 function loadNextQuestion() {
 
+    playerQuestions++;
     questionContainer.innerHTML = "";
+    scoreContainer.innerHTML = "" + playerScore + "/" + playerQuestions;
     currentQuestion++;
     initQuestion(questionArray[currentQuestion]);
 }

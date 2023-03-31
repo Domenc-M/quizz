@@ -68,3 +68,10 @@ h1 {
     background-color:var(--wrong);
     border:none;
 }
+
+#score {
+    color:var(--secondary-color);
+    font-size:35px;
+    margin:auto;
+    text-align:center;
+}
