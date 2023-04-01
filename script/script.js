@@ -76,9 +76,17 @@ function displayCorrectAnswer()
 
 function loadNextQuestion() {
     inputFrozen = 0;
-    questionContainer.innerHTML = "";
     currentQuestion++;
-    initQuestion(questionArray[currentQuestion]);
+    if (questionArray[currentQuestion])
+    {
+        questionContainer.innerHTML = "";
+        initQuestion(questionArray[currentQuestion]);
+    }
+    else
+    {
+        console.log('Done');
+    }
+    
 }
 
 function freezeInput() {
