@@ -28,13 +28,14 @@ h1 {
 #questionContainer {
     display:block;
     margin:5vh, 5vw, 5vh, 5vw;
+    padding-top:5vh;
 }
 
-#questionContainer h2 {
+h2 {
     text-align:center;
-    padding-top:5vh;
     color:var(--main-color);
     font-size:40px;
+    line-height:60px;
 }
 
 .buttons-container {
@@ -74,4 +75,14 @@ h1 {
     font-size:35px;
     margin:auto;
     text-align:center;
+}
+
+.titleCorrect {
+    color:var(--main-color);
+    font-size:50px;    
+}
+
+.titleWrong {
+    color:var(--wrong);
+    font-size:50px;
 }

@@ -17,12 +17,13 @@ let questionArray = [q1, q2, q3];
 let currentQuestion = 0;
 let playerScore = 0;
 let playerQuestions = 0;
+let questionTitle;
 
 initQuestion(questionArray[currentQuestion]);
 
 function initQuestion(question)
 {
-    let questionTitle = document.createElement('h2');
+    questionTitle = document.createElement('h2');
     questionTitle.setAttribute('id', 'questionTitle');
     questionTitle.textContent = '' + question.question + '';
     let newQuestion = document.createElement('ul');
@@ -44,9 +45,13 @@ function selectAnswer(n)
     if (this.getAttribute('number') == questionArray[currentQuestion].answerNumber)
     {
         playerScore++;
+        questionTitle.innerHTML = "Correct !"
+        questionTitle.classList.add('titleCorrect');
     }
     else
     {
+        questionTitle.innerHTML = "Wrong !"
+        questionTitle.classList.add('titleWrong');
     }
     displayCorrectAnswer();
     //freezeInput()
@@ -56,6 +61,8 @@ function selectAnswer(n)
 
 function displayCorrectAnswer()
 {
+    playerQuestions++;
+    scoreContainer.innerHTML = "" + playerScore + "/" + playerQuestions;
     for (let i = 0; i < 4; i++) {
         let btn = document.querySelectorAll('.answer-btn[number]')[i];
         if(btn.getAttribute('number') == questionArray[currentQuestion].answerNumber) { btn.classList.add('answer-correct');}
@@ -65,10 +72,7 @@ function displayCorrectAnswer()
 }
 
 function loadNextQuestion() {
-
-    playerQuestions++;
     questionContainer.innerHTML = "";
-    scoreContainer.innerHTML = "" + playerScore + "/" + playerQuestions;
     currentQuestion++;
     initQuestion(questionArray[currentQuestion]);
 }
