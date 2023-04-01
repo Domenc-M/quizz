@@ -14,6 +14,7 @@ let q2 = new question("What is 3+3 ?", ["6", "9", "8", "3"], 1);
 let q3 = new question("What is 5+5 ?", ["55", "25", "10", "la réponse D"], 3);
 
 let questionArray = [q1, q2, q3];
+let inputFrozen = 0;
 let currentQuestion = 0;
 let playerScore = 0;
 let playerQuestions = 0;
@@ -42,21 +43,23 @@ function initQuestion(question)
 
 function selectAnswer(n)
 {
-    if (this.getAttribute('number') == questionArray[currentQuestion].answerNumber)
+    if(inputFrozen == 0)
     {
-        playerScore++;
-        questionTitle.innerHTML = "Correct !"
-        questionTitle.classList.add('titleCorrect');
+        if (this.getAttribute('number') == questionArray[currentQuestion].answerNumber)
+        {
+            playerScore++;
+            questionTitle.innerHTML = "Correct !"
+            questionTitle.classList.add('titleCorrect');
+        }
+        else
+        {
+            questionTitle.innerHTML = "Wrong !"
+            questionTitle.classList.add('titleWrong');
+        }
+        displayCorrectAnswer();
+        freezeInput();
+        setTimeout(loadNextQuestion, 1500);
     }
-    else
-    {
-        questionTitle.innerHTML = "Wrong !"
-        questionTitle.classList.add('titleWrong');
-    }
-    displayCorrectAnswer();
-    //freezeInput()
-    setTimeout(loadNextQuestion, 1500);
-    // loadNextQuestion();
 }
 
 function displayCorrectAnswer()
@@ -72,8 +75,13 @@ function displayCorrectAnswer()
 }
 
 function loadNextQuestion() {
+    inputFrozen = 0;
     questionContainer.innerHTML = "";
     currentQuestion++;
     initQuestion(questionArray[currentQuestion]);
+}
+
+function freezeInput() {
+    inputFrozen = 1;
 }
 
