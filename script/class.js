@@ -7,8 +7,8 @@ class question {
 }
 
 class questionList {
-    constructor(title, questionArray) {
+    constructor(title, questionListArray) {
         this.title = title;
-        this.questionArray = questionArray;
+        this.questionListArray = questionListArray;
     }
 }
