@@ -1,14 +1,11 @@
+import "./class.js";
+
 const questionContainer = document.querySelector("#questionContainer");
 const iconContainer = document.querySelector("#questionContainer");
 const scoreContainer = document.querySelector('#score');
 
-class question {
-    constructor(question, answers, answerNumber) {
-        this.question = question;
-        this.answers = answers;
-        this.answerNumber = answerNumber;
-    }
-}
+let MainList;
+
 let q1 = new question("What is 2+2 ?", ["2", "4", "42", "69"], 2);
 let q2 = new question("What is 3+3 ?", ["6", "9", "8", "3"], 1);
 let q3 = new question("What is 5+5 ?", ["55", "25", "10", "la réponse D"], 3);
@@ -20,7 +17,28 @@ let playerScore = 0;
 let playerQuestions = 0;
 let questionTitle;
 
-initQuestion(questionArray[currentQuestion]);
+initMainMenu();
+
+// initQuestion(questionArray[currentQuestion]);
+
+function initMainMenu()
+{
+    questionTitle = document.createElement('h2');
+    questionTitle.setAttribute('id', 'questionTitle');
+    questionTitle.textContent = 'Welcome to the quizz';
+    let newQuestion = document.createElement('ul');
+    questionList.questionArray.forEach((element, index) => {
+        let button = document.createElement('li');
+        button.classList.add('answer-btn');
+        button.textContent = '' + element + '';
+        button.setAttribute('number', index+1);
+        button.addEventListener('click', selectAnswer);
+        newQuestion.appendChild(button);
+    });
+    newQuestion.classList.add('buttons-container');
+    questionContainer.appendChild(questionTitle);
+    questionContainer.appendChild(newQuestion);
+}
 
 function initQuestion(question)
 {
