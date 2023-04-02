@@ -12,6 +12,7 @@ let questionArray = [q1, q2, q3];
 let ql1 = new questionList('Math', [q1, q2, q3]);
 
 mainList = [ql1];
+let currentArray = null;
 let inputFrozen = 0;
 let currentQuestion = 0;
 let playerScore = 0;
@@ -31,9 +32,9 @@ function initMainMenu()
     mainList.forEach((element, index) => {
         let button = document.createElement('li');
         button.classList.add('answer-btn');
-        button.textContent = '' + element + '';
+        button.textContent = '' + element.title + '';
         button.setAttribute('number', index+1);
-        button.addEventListener('click', selectAnswer);
+        button.addEventListener('click', selectQuestionList);
         newQuestion.appendChild(button);
     });
     newQuestion.classList.add('buttons-container');
@@ -41,8 +42,14 @@ function initMainMenu()
     questionContainer.appendChild(newQuestion);
 }
 
+function selectQuestionList() {
+    currentArray =  questionArray;
+    initQuestion(currentArray[0]);
+}
+
 function initQuestion(question)
 {
+    questionContainer.innerHTML = "";
     questionTitle = document.createElement('h2');
     questionTitle.setAttribute('id', 'questionTitle');
     questionTitle.textContent = '' + question.question + '';
@@ -96,10 +103,10 @@ function displayCorrectAnswer()
 function loadNextQuestion() {
     inputFrozen = 0;
     currentQuestion++;
-    if (questionArray[currentQuestion])
+    if (currentArray[currentQuestion])
     {
         questionContainer.innerHTML = "";
-        initQuestion(questionArray[currentQuestion]);
+        initQuestion(currentArray[currentQuestion]);
     }
     else
     {
