@@ -24,7 +24,7 @@ function initMainMenu()
         let button = document.createElement('li');
         button.classList.add('answer-btn');
         button.textContent = '' + element.title + '';
-        button.setAttribute('number', index+1);
+        button.setAttribute('number', index);
         button.addEventListener('click', selectQuestionList);
         newQuestion.appendChild(button);
     });
@@ -34,7 +34,9 @@ function initMainMenu()
 }
 
 function selectQuestionList() {
-    currentArray =  questionArray;
+    console.log(this.getAttribute('number'));
+    console.log(mainList[this.getAttribute('number')]);
+    currentArray =  mainList[this.getAttribute('number')].questionListArray;
     initQuestion(currentArray[0]);
 }
 
@@ -62,7 +64,7 @@ function selectAnswer(n)
 {
     if(inputFrozen == 0)
     {
-        if (this.getAttribute('number') == questionArray[currentQuestion].answerNumber)
+        if (this.getAttribute('number') == currentArray[currentQuestion].answerNumber)
         {
             playerScore++;
             questionTitle.innerHTML = "Correct !"
@@ -85,7 +87,7 @@ function displayCorrectAnswer()
     scoreContainer.innerHTML = "" + playerScore + "/" + playerQuestions;
     for (let i = 0; i < 4; i++) {
         let btn = document.querySelectorAll('.answer-btn[number]')[i];
-        if(btn.getAttribute('number') == questionArray[currentQuestion].answerNumber) { btn.classList.add('answer-correct');}
+        if(btn.getAttribute('number') == currentArray[currentQuestion].answerNumber) { btn.classList.add('answer-correct');}
         else { btn.classList.add('answer-wrong'); }
         
     }

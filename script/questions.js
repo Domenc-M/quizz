@@ -26,10 +26,10 @@ let touhouQList = new questionList('Touhou', [touhouQ1, touhouQ2, touhouQ3]);
 
 // Hat in Time questions
 
-let hatQ1 = new question("What is 2+2 ?", ["2", "4", "42", "69"], 2);
-let hatQ2 = new question("What is 3+3 ?", ["6", "9", "8", "3"], 1);
-let hatQ3 = new question("What is 5+5 ?", ["55", "25", "10", "la réponse D"], 3);
+let hatQ1 = new question("What gender is the protagonist ?", ["Male", "Female", "Hat", "Kid"], 2);
+let hatQ2 = new question("What kind of bird wins the Studio award ?", ["A penguin", "An orange one", "The one I like the most", ""], 3);
+let hatQ3 = new question("What makes your troubles go away ?", ["A ribbon kid", "Peace and Tranquility", "My troubles never go away, peck-neck !", "The crow agency"], 2);
 
-let hatQList = new questionList('Math', [q1, q2, q3]);
+let hatQList = new questionList('A Hat in time', [hatQ1, hatQ2, hatQ3]);
 
-mainList = [RisusQlist];
+mainList = [risusQList, touhouQList, hatQList, smashQList];
