@@ -36,8 +36,6 @@ function initMainMenu()
 }
 
 function selectQuestionList() {
-    console.log(this.getAttribute('number'));
-    console.log(mainList[this.getAttribute('number')]);
     currentArray =  mainList[this.getAttribute('number')].questionListArray;
     initQuestion(currentArray[0]);
 }
