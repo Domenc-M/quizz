@@ -16,6 +16,7 @@ initMainMenu();
 
 function initMainMenu()
 {
+    questionContainer.innerHTML = "";
     questionTitle = document.createElement('h2');
     questionTitle.setAttribute('id', 'questionTitle');
     questionTitle.textContent = 'Welcome to the quizz';
@@ -103,7 +104,7 @@ function loadNextQuestion() {
     }
     else
     {
-        console.log('Done');
+        initMainMenu();
     }
     
 }
