@@ -16,6 +16,7 @@ initMainMenu();
 
 function initMainMenu()
 {
+    currentQuestion = 0;
     questionContainer.innerHTML = "";
     questionTitle = document.createElement('h2');
     questionTitle.setAttribute('id', 'questionTitle');
